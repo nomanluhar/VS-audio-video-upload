@@ -29,10 +29,12 @@ This project is a MERN stack application that allows users to upload video and a
    cd VS-audio-video-upload
 
 2. Install back-end dependencies:
+    ```bash
     cd back-end
     npm install
 
 3. Install front-end dependencies:
+    ```bash
     cd ../front-end
     npm install
 
@@ -59,18 +61,18 @@ This project is a MERN stack application that allows users to upload video and a
         ffmpeg.setFfprobePath("/usr/bin/ffprobe");
 
 ## Running the Application
-    Start the back-end:
+    1.Start the back-end (Terminal-1):
         cd back-end
         npm start
 
-    Start the front-end:
-        cd ../front-end
+    Start the front-end(Terminal-2):
+        cd front-end
         npm start
     
     The front-end should now be running on http://localhost:3000.
 
     ## NOTE 
-        Please make sure to use two terminal to running both the back-end and front-end smoothly.
+        Please make sure to use two terminal to running both the back-end and front-end properly.
 
 ## API Endpoints
     Upload File
