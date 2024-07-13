@@ -28,9 +28,6 @@ const FileList = () => {
 
   return (
     <Box sx={{ padding: 2 }}>
-      <Typography variant="h4" sx={{ marginBottom: 2 }}>
-        Uploaded Files
-      </Typography>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>

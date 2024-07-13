@@ -22,8 +22,14 @@ const compressedVideo = (filePath, compressedPath) => {
       .output(compressedPath)
       .videoCodec("libx264")
       .size("1280x720")
+      .outputOptions("-preset ultrafast") 
+      .on("progress", (progress) => {
+        console.log(`Processing: ${progress.percent}%`);
+      })
       .on("end", () => {
-        console.log(`File compressed successfully and saved to ${compressedPath}`);
+        console.log(
+          `File compressed successfully and saved to ${compressedPath}`
+        );
         resolve();
       })
       .on("error", (err) => {
@@ -32,7 +38,6 @@ const compressedVideo = (filePath, compressedPath) => {
       })
       .run();
   });
-
 };
 
 module.exports = { ffprobe, compressedVideo };

@@ -1,6 +1,7 @@
 const File = require("../models/fileModel");
 const fs = require("fs");
 const path = require("path");
+const { performance } = require("perf_hooks");
 const { ffprobe, compressedVideo } = require("./ffmpegController");
 const uploadToS3 = require("./s3FileUploadController");
 
@@ -76,6 +77,7 @@ const getFiles = async (req, res) => {
 
 const compressAndUpload = async (filePath, filename, mimeType, fileId) => {
   try {
+    const startTime = performance.now();
     const compressedPath = path.join(
       __dirname,
       "..",
@@ -84,12 +86,15 @@ const compressAndUpload = async (filePath, filename, mimeType, fileId) => {
     );
 
     await compressedVideo(filePath, compressedPath);
-    console.log("Compression complete, file saved at:", compressedPath);
 
     const compressedFileUrl = await uploadToS3(compressedPath, mimeType);
-    console.log("Compress File URL:", compressedFileUrl);
     await File.findByIdAndUpdate(fileId, { compressedFileUrl });
     fs.unlinkSync(compressedPath);
+    console.log("Video compression completed");
+    const endTime = performance.now();
+    const duration = (endTime - startTime) / 1000;
+
+    console.log(`Compression took ${duration.toFixed(2)} Seconds.`);
   } catch (err) {
     console.log({ err });
     console.log(err.message);
