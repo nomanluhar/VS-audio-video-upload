@@ -100,3 +100,7 @@ capacitor.config.json
 
 # Windows system files
 Thumbs.db
+
+# Uploads folder
+uploads/
+
