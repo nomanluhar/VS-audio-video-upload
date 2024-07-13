@@ -48,6 +48,7 @@ This project is a MERN stack application that allows users to upload video and a
             MONGODB_URI=your_mongodb_connection_string
             AWS_ACCESS_KEY_ID=your_aws_access_key
             AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+            AWS_REGION='your_aws_region'
             AWS_BUCKET_NAME=your_s3_bucket_name
             
         - If you encounter access issues, you might need to hardcode the S3 keys directly in your code (not recommended for production).
