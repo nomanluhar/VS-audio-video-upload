@@ -11,6 +11,7 @@ This project is a MERN stack application that allows users to upload video and a
 - [API Endpoints](#api-endpoints)
 - [File Structure](#file-structure)
 - [Usage](#usage)
+- [Important Note](#important-note)
 
 ## Prerequisites
 
@@ -35,7 +36,7 @@ This project is a MERN stack application that allows users to upload video and a
     cd ../front-end
     npm install
 
-Configuration
+## Configuration
     Server Configuration:
 
         Create a .env file in the back-end directory and add the following environment variables:
@@ -57,7 +58,7 @@ Configuration
         ffmpeg.setFfmpegPath("/usr/bin/ffmpeg");
         ffmpeg.setFfprobePath("/usr/bin/ffprobe");
 
-Running the Application
+## Running the Application
     Start the back-end:
         cd back-end
         npm start
@@ -71,7 +72,7 @@ Running the Application
     ## NOTE 
         Please make sure to use two terminal to running both the back-end and front-end smoothly.
 
-API Endpoints
+## API Endpoints
     Upload File
         URL: /api/upload
         Method: POST
@@ -83,7 +84,7 @@ API Endpoints
         Method: GET
         Description: Retrieves all uploaded files metadata.
 
-File Structure
+## File Structure
     VS-audio-video-upload/
     ├── front-end/                # React frontend
     │   ├── public/
@@ -103,7 +104,7 @@ File Structure
     ├── .gitignore
     └── README.md
 
-Usage
+## Usage
     Upload a File:
 
         Navigate to the upload page on the client.
@@ -113,6 +114,18 @@ Usage
 
     Navigate to the files page to see a list of all uploaded files.
 
+## Important Note
+    AWS S3 Credentials:
+
+        In some cases, you may need to hardcode AWS S3 credentials directly into your code if there are issues with accessing them via environment variables. This is not recommended for production use due to security reasons.
+        If you encounter access issues, you can temporarily hardcode your credentials in s3FileUploadController.js as shown below:
+        
+            const AWS = require('aws-sdk');
+            const s3 = new AWS.S3({
+                accessKeyId: 'your_aws_access_key_id',
+                secretAccessKey: 'your_aws_secret_access_key',
+                region: 'your_aws_region'
+            });
 
 
 
