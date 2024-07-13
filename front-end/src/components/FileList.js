@@ -39,7 +39,7 @@ const FileList = () => {
               <TableCell>Title</TableCell>
               <TableCell>Description</TableCell>
               <TableCell>Type</TableCell>
-              <TableCell>Download</TableCell>
+              <TableCell>File</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -50,13 +50,7 @@ const FileList = () => {
                 <TableCell>{file.description}</TableCell>
                 <TableCell>{file.fileType}</TableCell>
                 <TableCell>
-                  <Link
-                    href={file.fileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Download
-                  </Link>
+                  {file.fileUrl.substring(file.fileUrl.lastIndexOf("/") + 1)}
                 </TableCell>
               </TableRow>
             ))}

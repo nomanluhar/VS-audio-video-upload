@@ -12,6 +12,7 @@ const uploadFile = async (req, res) => {
     let duration = await getFileDuration(file.path);
 
     const fileUrl = await uploadToS3(file.path, file.mimetype);
+
     const obj = {
       name,
       title,
@@ -20,8 +21,8 @@ const uploadFile = async (req, res) => {
       fileType: file.mimetype,
       duration,
     };
-
     const fileMetadata = new File(obj);
+
     const saveFileResponse = await fileMetadata.save();
 
     // Trigger asynchronous compression process
@@ -49,9 +50,9 @@ const uploadFile = async (req, res) => {
 const getFileDuration = async (path) => {
   // Check file duration
   const metadata = await ffprobe(path);
-
+  console.log({ metadata });
   const duration = metadata.format.duration;
-
+  console.log({ duration });
   if (duration > 1800) {
     fs.unlinkSync(path);
     throw {
