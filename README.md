@@ -28,14 +28,14 @@ This project is a MERN stack application that allows users to upload video and a
    git clone https://github.com/nomanluhar/VS-audio-video-upload.git
    cd VS-audio-video-upload
 
-2. Install back-end dependencies:
+2. Install back-end dependencies (Terminal-1):
     ```bash
     cd back-end
     npm install
 
-3. Install front-end dependencies:
+3. Install front-end dependencies (Terminal-2):
     ```bash
-    cd ../front-end
+    cd front-end
     npm install
 
 ## Configuration
@@ -65,7 +65,7 @@ This project is a MERN stack application that allows users to upload video and a
         cd back-end
         npm start
 
-    Start the front-end(Terminal-2):
+    Start the front-end (Terminal-2):
         cd front-end
         npm start
     
