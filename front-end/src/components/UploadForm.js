@@ -56,7 +56,7 @@ const UploadForm = () => {
       alert("File uploaded successfully");
     } catch (error) {
       console.error({ error });
-      if (error?.response?.status == 413) {
+      if (error?.response?.status === 413) {
         alert(error.response.data.message);
       } else {
         alert("Failed to upload file");
