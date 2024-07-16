@@ -1,6 +1,6 @@
 # VS-audio-video-upload
 
-This project is a MERN stack application that allows users to upload video and audio files, checks their duration, and compresses them before uploading to an AWS S3 bucket.
+This project is a MERN stack application that allows users to upload video and audio files, checks their duration, and compresses them after uploading to an AWS S3 bucket.
 
 ## Table of Contents
 
